@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @list.name %>
+</p>
+
+<ul>
+  <% @list.items.each do |item| %>
+  <li><%= item.combined %> <%= link_to '^', edit_item_path(item) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'New', new_item_path() %>
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>

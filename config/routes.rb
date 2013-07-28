@@ -1,4 +1,12 @@
 Shownotes::Application.routes.draw do
+  get "home/index"
+
+  resources :items
+
+
+  resources :lists
+
+
   root :to => 'home#index'
 
   # authentication routes
