@@ -7,7 +7,7 @@ Shownotes::Application.routes.draw do
   resources :lists
 
 
-  root :to => 'home#index'
+  root :to => 'lists#index'
 
   # authentication routes
   match '/login',                 :to => 'user_session#new',                      :as => :login,           :via => :get

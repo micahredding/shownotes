@@ -16,22 +16,29 @@
     <%= f.text_field :name %>
   </div>
 
+
+  <% placeholder_text = 'Text goes here. Optionally [bracket] particular phrases to make specific links.' %>
+  <% placeholder_links = 'Links go here. You can enter multiple links on individual lines.' %>
   <ul>
     <%= f.fields_for :items do |i| %>
       <li>
-        <%= i.text_field :description %><br />
-        <%= i.text_field :links %>
+        <%= i.text_area :description, :class => 'description', :placeholder => placeholder_text %>
+        <%= i.text_area :links, :class => 'links', :placeholder => placeholder_links %>
       </li>
     <% end %>
 
-    <%= f.fields_for :items, Item.new do |i| %>
+    <%= f.fields_for :items, Item.new, :child_index => "index_to_replace_with_js" do |i| %>
       <li>
-        <%= i.text_field :description %><br />
-        <%= i.text_field :links %>
+        <%= i.text_area :description, :class => 'description', :placeholder => placeholder_text %>
+        <%= i.text_area :links, :class => 'links', :placeholder => placeholder_links %>
       </li>
     <% end %>
 
   </ul>
+
+  <p><%= f.link_to_add "Add an item", :items %></p>
+
+  <%= add_item_link("New item", 'ul', :partial => 'lists/item', :object => Item.new, :locals => {:f => f} ) %>
 
   <div class="actions">
     <%= f.submit %>

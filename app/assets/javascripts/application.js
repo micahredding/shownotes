@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require vendor/autosize/jquery.autosize
+//= require vendor/numerous/numerous
 //= require_tree .
 //= require chosen-jquery
+//= require jquery_nested_form
