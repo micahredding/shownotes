@@ -1,0 +1,9 @@
+<% placeholder_text = 'Text goes here. Optionally [bracket] particular phrases to make specific links.' %>
+<% placeholder_links = 'Links go here. You can enter multiple links on individual lines.' %>
+
+<% f.fields_for :items, item, :child_index => (item.new_record? ? "index_to_replace_with_js" : nil) do |i| %>
+  <li>
+    <%= i.text_area :description, :class => 'description', :placeholder => placeholder_text %>
+    <%= i.text_area :links, :class => 'links', :placeholder => placeholder_links %>
+  </li>
+<% end %>
