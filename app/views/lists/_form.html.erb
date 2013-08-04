@@ -27,7 +27,7 @@
       </li>
     <% end %>
 
-    <%= f.fields_for :items, Item.new, :child_index => "index_to_replace_with_js" do |i| %>
+    <%= f.fields_for :items, Item.new do |i| %>
       <li>
         <%= i.text_area :description, :class => 'description', :placeholder => placeholder_text %>
         <%= i.text_area :links, :class => 'links', :placeholder => placeholder_links %>
@@ -35,10 +35,6 @@
     <% end %>
 
   </ul>
-
-  <p><%= f.link_to_add "Add an item", :items %></p>
-
-  <%= add_item_link("New item", 'ul', :partial => 'lists/item', :object => Item.new, :locals => {:f => f} ) %>
 
   <div class="actions">
     <%= f.submit %>
