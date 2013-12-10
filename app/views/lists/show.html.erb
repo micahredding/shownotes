@@ -7,7 +7,7 @@
 
 <ul>
   <% @list.items.each do |item| %>
-  <li><%= item.combined %> <%= link_to '^', edit_item_path(item) %></li>
+  <li><%= combine_text_and_links(item.description, item.links) %> <%= link_to '^', edit_item_path(item) %></li>
   <% end %>
 </ul>
 
